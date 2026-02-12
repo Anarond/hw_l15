@@ -11,7 +11,7 @@ from selene import browser, have
     [pytest.param('chrome'), pytest.param('firefox', marks=pytest.mark.skip)],
     indirect=True
 )
-def test_override_window_size_indirectly(desktop_browser):
+def test_override_window_size_indirectly(desktop_browser, browser_name):
     browser.open("https://github.com/")
     browser.element(".HeaderMenu-link--sign-in").click()
     browser.should(have.url_containing("/login"))
